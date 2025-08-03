@@ -10,46 +10,12 @@ export const unitTableHeaders = [
   "Gallery",
 ];
 
-const unitsData: Unit[] = [
-  {
-    _id: "1",
-    unit_id: "A-01",
-    unit_type: "penthouse",
-    total_price: 1068127,
-    for_sale: false,
-    photos: [
-      "https://placehold.co/300x200",
-      "https://placehold.co/300x200",
-      "https://placehold.co/300x200",
-    ],
-  },
-  {
-    _id: "2",
-    unit_id: "A-02",
-    unit_type: "apartment",
-    total_price: 737820,
-    for_sale: true,
-    photos: [
-      "https://placehold.co/300x200",
-      "https://placehold.co/300x200",
-      "https://placehold.co/300x200",
-    ],
-  },
-  {
-    _id: "3",
-    unit_id: "A-03",
-    unit_type: "duplex",
-    total_price: 1287314,
-    for_sale: false,
-    photos: [
-      "https://placehold.co/300x200",
-      "https://placehold.co/300x200",
-      "https://placehold.co/300x200",
-    ],
-  },
-];
+interface UnitsTable {
+  units: Unit[];
+  isLoading: boolean;
+}
 
-const UnitsTable = () => {
+const UnitsTable = ({ units, isLoading }: UnitsTable) => {
   return (
     <Table>
       <Table.Header>
@@ -61,7 +27,7 @@ const UnitsTable = () => {
       </Table.Header>
 
       <Table.Body
-        data={unitsData}
+        data={units}
         render={(unit) => <UnitRow key={unit.unit_id} unitItem={unit} />}
       />
     </Table>

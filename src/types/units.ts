@@ -6,3 +6,5 @@ export interface Unit {
   for_sale: boolean;
   photos: string[];
 }
+
+export type QueryParams = Record<string, string | number>;
