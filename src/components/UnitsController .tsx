@@ -23,7 +23,8 @@ const UnitsController = () => {
       }),
   });
 
-  if (error) return <div>Sothng went wrong!</div>;
+  if (error)
+    return <div className="text-center text-xl">Somthing went wrong!</div>;
 
   return (
     <div className="flex flex-col gap-6">
