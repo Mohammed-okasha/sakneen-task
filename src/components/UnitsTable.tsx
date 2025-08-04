@@ -17,6 +17,8 @@ interface UnitsTable {
 }
 
 const UnitsTable = ({ units, isLoading, ref }: UnitsTable) => {
+  const unitsData = isLoading ? Array.from({ length: 4 }) : units;
+
   return (
     <div ref={ref}>
       <Table>
@@ -29,7 +31,7 @@ const UnitsTable = ({ units, isLoading, ref }: UnitsTable) => {
         </Table.Header>
 
         <Table.Body
-          data={units || []}
+          data={units}
           render={(unit) => <UnitRow key={unit.unit_id} unitItem={unit} />}
         />
       </Table>
