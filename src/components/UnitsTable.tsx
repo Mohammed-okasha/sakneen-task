@@ -13,24 +13,27 @@ export const unitTableHeaders = [
 interface UnitsTable {
   units: Unit[];
   isLoading: boolean;
+  ref: React.RefObject<HTMLDivElement | null>;
 }
 
-const UnitsTable = ({ units, isLoading }: UnitsTable) => {
+const UnitsTable = ({ units, isLoading, ref }: UnitsTable) => {
   return (
-    <Table>
-      <Table.Header>
-        <Table.Row>
-          {unitTableHeaders.map((header) => (
-            <Table.TableHead key={header} title={header} />
-          ))}
-        </Table.Row>
-      </Table.Header>
+    <div ref={ref}>
+      <Table>
+        <Table.Header>
+          <Table.Row>
+            {unitTableHeaders.map((header) => (
+              <Table.TableHead key={header} title={header} />
+            ))}
+          </Table.Row>
+        </Table.Header>
 
-      <Table.Body
-        data={units}
-        render={(unit) => <UnitRow key={unit.unit_id} unitItem={unit} />}
-      />
-    </Table>
+        <Table.Body
+          data={units || []}
+          render={(unit) => <UnitRow key={unit.unit_id} unitItem={unit} />}
+        />
+      </Table>
+    </div>
   );
 };
 

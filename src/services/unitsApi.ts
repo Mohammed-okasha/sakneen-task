@@ -5,13 +5,10 @@ const BASE_API_URL = "http://localhost:3005";
 
 interface UnitsResult {
   units: Unit[];
-  total: number;
-  totalPages: number;
+  pageCount: number;
 }
 
-export const fetchUnits = async (
-  queries: QueryParams
-): Promise<UnitsResult> => {
+export const fetchUnits = async (queries: QueryParams) => {
   const formattedQueries = prepareQueryParams(queries);
 
   const res = await fetch(`${BASE_API_URL}/listings${formattedQueries}`);
@@ -22,5 +19,5 @@ export const fetchUnits = async (
     throw new Error(result.message || "");
   }
 
-  return { units: result.data, total: result.items, totalPages: result.pages };
+  return { units: result.data, pageCount: result.pages };
 };

@@ -4,22 +4,20 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 interface PaginationProps {
   page: number;
-  totalPages: number;
+  pageCount: number;
   loading: boolean;
-  onSelectPage: (page: number) => void;
+  onSelectPage: ({ selected }: { selected: number }) => void;
 }
 
 const Pagination = ({
   page,
-  totalPages,
+  pageCount,
   loading,
   onSelectPage,
 }: PaginationProps) => {
-  if (totalPages <= 1) return null;
-
   const diableClasses = "disabled opacity-40";
   const disablePrevBtnStyle = page === 1 ? diableClasses : "";
-  const disableNextBtnStyle = page === totalPages ? diableClasses : "";
+  const disableNextBtnStyle = page === pageCount ? diableClasses : "";
   const btnClasses = "text-3xl cursor-pointer";
 
   const previous = (
@@ -35,6 +33,9 @@ const Pagination = ({
   );
 
   const paginateClass = `cursor-pointer ${loading ? diableClasses : ""}`;
+
+  if (loading) return <div>loading</div>;
+  if (pageCount <= 1) return null;
 
   return (
     <div className={paginateClass}>
@@ -52,11 +53,11 @@ const Pagination = ({
         breakClassName="page-item break"
         breakLinkClassName="page-link"
         containerClassName="flex justify-center gap-3 items-center"
-        pageCount={totalPages}
+        pageCount={pageCount}
         forcePage={page - 1}
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
-        onPageChange={({ selected }) => onSelectPage(selected + 1)}
+        onPageChange={onSelectPage}
       />
     </div>
   );
