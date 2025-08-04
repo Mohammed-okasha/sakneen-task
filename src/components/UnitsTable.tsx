@@ -1,6 +1,7 @@
 import Table from "@/ui/Table";
 import UnitRow from "./UnitRow";
 import UnitRowSkeleton from "@/ui/skeleton/UnitRowSkeleton";
+import { PAGE_SIZE } from "@/utils/constant";
 import { Unit } from "@/types/units";
 
 export const unitTableHeaders = [
@@ -18,7 +19,7 @@ interface UnitsTable {
 }
 
 const UnitsTable = ({ units, isLoading, ref }: UnitsTable) => {
-  const unitsData = isLoading ? Array.from({ length: 4 }) : units;
+  const unitsData = isLoading ? Array.from({ length: PAGE_SIZE }) : units;
 
   return (
     <div ref={ref}>
