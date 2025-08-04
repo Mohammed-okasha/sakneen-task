@@ -1,12 +1,7 @@
 import { prepareQueryParams } from "@/utils/helpes";
-import { Unit, QueryParams } from "@/types/units";
+import { QueryParams } from "@/types/units";
 
 const BASE_API_URL = "http://localhost:3005";
-
-interface UnitsResult {
-  units: Unit[];
-  pageCount: number;
-}
 
 export const fetchUnits = async (queries: QueryParams) => {
   const formattedQueries = prepareQueryParams(queries);

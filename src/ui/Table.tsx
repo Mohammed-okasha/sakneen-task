@@ -3,7 +3,7 @@ import React from "react";
 type ChildrenProp = React.ReactNode;
 type BodyProps<T> = {
   data: T[];
-  render: (item: T) => React.ReactNode;
+  render: (item: T, index: number) => React.ReactNode;
 };
 
 interface TableCellProps {

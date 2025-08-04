@@ -1,5 +1,6 @@
 import Table from "@/ui/Table";
 import UnitRow from "./UnitRow";
+import UnitRowSkeleton from "@/ui/skeleton/UnitRowSkeleton";
 import { Unit } from "@/types/units";
 
 export const unitTableHeaders = [
@@ -31,8 +32,13 @@ const UnitsTable = ({ units, isLoading, ref }: UnitsTable) => {
         </Table.Header>
 
         <Table.Body
-          data={units}
-          render={(unit) => <UnitRow key={unit.unit_id} unitItem={unit} />}
+          data={unitsData as Unit[]}
+          render={(unit: Unit, index) => (
+            <>
+              {unit && <UnitRow key={unit.unit_id} unitItem={unit} />}
+              {!unit && <UnitRowSkeleton key={index} />}
+            </>
+          )}
         />
       </Table>
     </div>

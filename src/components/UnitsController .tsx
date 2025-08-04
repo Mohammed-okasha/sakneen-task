@@ -45,7 +45,10 @@ const UnitsController = () => {
         loading={isLoading}
         onSelectPage={({ selected }) => {
           setPage(selected + 1);
-          unitTableRef.current?.scrollIntoView();
+          unitTableRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
         }}
       />
     </div>
