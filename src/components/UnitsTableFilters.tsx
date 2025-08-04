@@ -18,7 +18,7 @@ const UnitsTableFilters = (props: UnitsFiltersProps) => {
 
   return (
     <div
-      className={`flex items-center justify-between ${
+      className={`flex flex-col justify-between gap-3 items-center md:flex-row ${
         isLoading ? "disabled opacity-40" : ""
       }`}
     >

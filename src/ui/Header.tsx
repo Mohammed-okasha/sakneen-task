@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="bg-blue-900 py-6">
+    <header className="bg-[#2419be] py-6">
       <Container>
         <div className="flex items-center justify-between">
           <Link href="/">
