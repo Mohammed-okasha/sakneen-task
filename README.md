@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Unit Management Dashboard
+Overview
+A web page with a unit management table, featuring pagination, sorting, search by Unit ID, and a lightbox gallery. Built with Next.js, React, Tailwind CSS, and Lightbox2.
+Features
 
-## Getting Started
+Table: Displays Unit ID, Name, Status, Price, Gallery.
+Pagination: Navigate data with page controls.
+Sorting: Sort columns (ascending/descending).
+Search: Filter by Unit ID in real-time.
+Lightbox: View unit images on thumbnail click.
+Styling: Tailwind CSS for a modern UI.
 
-First, run the development server:
+Technologies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Next.js
+React
+Tailwind CSS (CDN)
+Lightbox2 (CDN)
+JavaScript (ES6+)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Implementation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Table: React component (UnitTable) for dynamic data.
+Pagination: State-driven with Previous/Next buttons.
+Sorting: Click headers to toggle sort direction.
+Search: Case-insensitive Unit ID filtering.
+Lightbox: Lightbox2 for gallery images.
+Styling: Tailwind CSS with modern design.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Setup
 
-## Learn More
+Clone: git clone <repository-url>.
+Install dependencies: npm install.
+Run: npm run dev and open http://localhost:3000.
+Edit data in the component for updates.
 
-To learn more about Next.js, take a look at the following resources:
+Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Search by Unit ID to filter.
+Sort by clicking column headers.
+Paginate with page controls.
+Click gallery thumbnail for lightbox.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Limitations
 
-## Deploy on Vercel
+Static data; large datasets may slow performance.
+Requires internet for CDNs.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+License
+MIT License.
